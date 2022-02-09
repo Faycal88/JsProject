@@ -1,0 +1,151 @@
+/* How Much is True? */
+
+function countTrue(arr) {
+  let count = 0;
+  arr.forEach((element) => {
+    if (element) {
+      count++;
+    }
+  });
+  return count;
+}
+
+/* Ageing the Population... */
+
+function afterNYears(peopl, n) {
+  let ab = Math.abs(n);
+  Object.keys(peopl).forEach((key) => {
+    peopl[key] = peopl[key] + ab;
+  });
+  return peopl;
+}
+
+/* Get Sum of People's Budget */
+
+function getBudgets(arr) {
+  let array = [];
+  let sum = 0;
+  array = Object.values(arr);
+  let subarray = [];
+  for (let index = 0; index < array.length; index++) {
+    subarray = Object.values(array[index]);
+    sum = sum + subarray[2];
+  }
+  return sum;
+}
+
+/* Printer Levels */
+function inkLevels(inks) {
+  let clone = Object.values(inks);
+  let result = clone[0];
+  for (let index = 0; index < clone.length; index++) {
+    if (result > clone[index]) {
+      result = clone[index];
+    }
+  }
+  return result;
+}
+
+/* Are the Numbers Equal? */
+
+function isSameNum(num1, num2) {
+  if (num1 === num2) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+/* International Greetings */
+
+const GUEST_LIST = {
+  Randy: "Germany",
+  Karla: "France",
+  Wendy: "Japan",
+  Norman: "England",
+  Sam: "Argentina",
+  find: function (name) {
+    let obj = [];
+    let done = false;
+    let endresult = [];
+    let country = GUEST_LIST[name];
+    obj = Object.keys(GUEST_LIST);
+    for (let index = 0; index < obj.length; index++) {
+      if (obj[index] == name) {
+        done = true;
+      } else {
+        endresult = `Hi! I'm a guest.`;
+      }
+    }
+
+    if (done) {
+      endresult = `Hi! I'm ${name}, and I'm from ${country}.`;
+    }
+    return endresult;
+  },
+};
+
+function greeting(name) {
+  return GUEST_LIST.find(name);
+}
+
+/* Convert Key, Values in an Object to Array */
+
+function objectToArray(obj) {
+  let clone = Object.values(obj);
+  let key = Object.keys(obj);
+  let Array = [];
+  for (let index = 0; index < clone.length; index++) {
+    Array[index] = [key[index], clone[index]];
+  }
+
+  return Array;
+}
+
+/* Absolute Sum */
+
+function getAbsSum(arr) {
+  let newArray = [];
+  let result = 0;
+  arr.forEach((element) => {
+    element = Math.abs(element);
+    newArray.push(element);
+  });
+  for (let index = 0; index < newArray.length; index++) {
+    result = result + newArray[index];
+  }
+  return result;
+}
+
+/* Filter out Strings from an Array */
+
+function filterArray(arr) {
+  console.log(arr.length);
+  let newArray = [];
+  for (let index = 0; index < arr.length; index++) {
+    let truthy = Number.isInteger(arr[index]);
+    if (truthy) {
+      newArray.push(arr[index]);
+    }
+  }
+  return newArray;
+}
+
+/* Find the Smallest and Biggest Numbers */
+
+function minMax(arr) {
+  let min = arr[0];
+  let max = arr[0];
+  let array = [0, 0];
+  for (let index = 1; index < arr.length; index++) {
+    if (min > arr[index]) {
+      min = arr[index];
+    }
+    if (max < arr[index]) {
+      max = arr[index];
+    }
+  }
+  array[0] = min;
+  array[1] = max;
+  return array;
+}
